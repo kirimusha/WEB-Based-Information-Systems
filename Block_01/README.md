@@ -32,6 +32,10 @@ Reporting Results:
 
 * **HTML / Form Handling** — клиентский интерфейс (`index.php`) для сбора пользовательских данных и передачи их на сервер.
 
+<img width="710" height="126" alt="image" src="https://github.com/user-attachments/assets/de6752e0-b174-4cd3-9131-33ac2a9c846b" />
+
+<img width="809" height="122" alt="image" src="https://github.com/user-attachments/assets/c9850b7e-df87-48bc-b98e-70f48a030b94" />
+
 ```mermaid
 flowchart TD
     Start([Пользователь заходит на index.php]) --> Input[Ввод сложности и клик «Send it!»]
