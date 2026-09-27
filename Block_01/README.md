@@ -7,8 +7,6 @@ Practical Work:
 
 * Implement the Back-End (two PHP Scripts) that process parameters received as an HTTP Request, install a connection to the DBMS , and run SQL queries . The scripts should return results of the queries in HTML format.
 
-
-
 Reporting Results:
 
 * You should produce three files (database dump source PHP files).
@@ -16,21 +14,6 @@ Reporting Results:
 
 * Make a "Block_01.zip" out of these files and upload it into your personal diary.
 
-Использованные технологии:
-
-* **MAMP Stack** (macOS, Apache, MySQL, PHP) — локальная серверная среда для запуска и тестирования бэкенд-приложений.
-
-
-* **PHP** — серверный язык программирования для обработки `POST`-запросов из HTML-формы, формирования SQL-запросов и генерации динамических страниц.
-
-
-* **MySQL** — реляционная СУБД для хранения и управления данными приложений.
-
-
-* **phpMyAdmin** — веб-интерфейс для администрирования БД, создания таблиц и экспорта дампа (`.sql`).
-
-
-* **HTML / Form Handling** — клиентский интерфейс (`index.php`) для сбора пользовательских данных и передачи их на сервер.
 
 <img width="710" height="126" alt="image" src="https://github.com/user-attachments/assets/de6752e0-b174-4cd3-9131-33ac2a9c846b" />
 
@@ -55,3 +38,18 @@ flowchart TD
     ReturnData --> GenHTML[Генерация результатов через while]
     GenHTML --> Render([Отображение готового HTML в браузере])
 ```
+Использованные технологии:
+
+* **MAMP Stack** (macOS, Apache, MySQL, PHP) — локальная серверная среда для запуска и тестирования бэкенд-приложений.
+
+
+* **PHP** — серверный язык программирования для обработки `POST`-запросов из HTML-формы, формирования SQL-запросов и генерации динамических страниц.
+
+
+* **MySQL** — реляционная СУБД для хранения и управления данными приложений.
+
+
+* **phpMyAdmin** — веб-интерфейс для администрирования БД, создания таблиц и экспорта дампа (`.sql`).
+
+
+* **HTML / Form Handling** — клиентский интерфейс (`index.php`) для сбора пользовательских данных и передачи их на сервер.
