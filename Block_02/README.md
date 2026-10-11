@@ -47,7 +47,8 @@
 
 Для выполнения SQL-запроса используется `PreparedStatement`, а для чтения результатов — `ResultSet`.
 
-![[Pasted image 20261011232616.png]]
+<img width="718" height="362" alt="Pasted image 20261011232616" src="https://github.com/user-attachments/assets/75e8decf-b50d-4051-8679-87b86d7215d8" />
+
 
 ### 2. TripsServlet
 
@@ -71,7 +72,8 @@
 
 Он позволяет получить информацию о походах продолжительностью не менее 10 дней.
 
-![[Pasted image 20261011232636.png]]
+<img width="837" height="277" alt="Pasted image 20261011232636" src="https://github.com/user-attachments/assets/08ecf067-6217-4fa7-ac26-6389d289c6fb" />
+
 
 ## Подключение к базе данных
 
