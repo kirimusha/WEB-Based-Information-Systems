@@ -47,6 +47,8 @@
 
 Для выполнения SQL-запроса используется `PreparedStatement`, а для чтения результатов — `ResultSet`.
 
+![[Pasted image 20261011232616.png]]
+
 ### 2. TripsServlet
 
 Файл: `TripsServlet.java`
@@ -68,6 +70,8 @@
 `http://localhost:8080/Block_02/trips?minDuration=10`
 
 Он позволяет получить информацию о походах продолжительностью не менее 10 дней.
+
+![[Pasted image 20261011232636.png]]
 
 ## Подключение к базе данных
 
