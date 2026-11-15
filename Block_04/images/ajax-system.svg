@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#55657c"/></marker></defs>
+<rect width="1100" height="640" rx="24" fill="#f5f7fb"/>
+<g font-family="Arial, sans-serif" fill="#18283f">
+<text x="48" y="55" font-size="29" font-weight="bold">Block 04 · Как работает AJAX-поиск</text>
+<text x="48" y="89" font-size="18" fill="#55657c">Пример: поиск гор по стране Russia</text>
+<rect x="35" y="120" width="480" height="470" rx="20" fill="#eaf2ff" stroke="#b9d0f5"/>
+<text x="60" y="155" font-size="21" font-weight="bold">Браузер · ajax.html</text>
+<rect x="65" y="180" width="420" height="85" rx="12" fill="white" stroke="#b9d0f5"/>
+<text x="85" y="211" font-size="19" font-weight="bold">1. Пользователь вводит Russia</text>
+<text x="85" y="240" font-size="17">и нажимает «Найти горы»</text>
+<rect x="65" y="305" width="420" height="95" rx="12" fill="white" stroke="#b9d0f5"/>
+<text x="85" y="338" font-size="19" font-weight="bold">2. JavaScript запускает search()</text>
+<text x="85" y="368" font-size="17">XMLHttpRequest отправляет HTTP GET</text>
+<rect x="65" y="455" width="420" height="105" rx="12" fill="white" stroke="#b9d0f5"/>
+<text x="85" y="489" font-size="19" font-weight="bold">5. Обновляется DOM страницы</text>
+<text x="85" y="518" font-size="17">responseText → result.innerHTML</text>
+<text x="85" y="543" font-size="16" fill="#55657c">Ответ виден без перезагрузки страницы</text>
+<rect x="650" y="120" width="415" height="470" rx="20" fill="#e9f6ef" stroke="#afd6bf"/>
+<text x="675" y="155" font-size="21" font-weight="bold">Сервер · Tomcat / PostgreSQL</text>
+<rect x="680" y="275" width="355" height="110" rx="12" fill="white" stroke="#afd6bf"/>
+<text x="700" y="310" font-size="19" font-weight="bold">3. mountains.jsp</text>
+<text x="700" y="340" font-size="17">Получает параметр country</text>
+<text x="700" y="366" font-size="17">и выполняет SQL-запрос через JDBC</text>
+<rect x="680" y="455" width="355" height="105" rx="12" fill="white" stroke="#afd6bf"/>
+<text x="700" y="489" font-size="19" font-weight="bold">4. PostgreSQL · mountains</text>
+<text x="700" y="518" font-size="17">Фильтр: mcountry ILIKE '%Russia%'</text>
+<text x="700" y="543" font-size="16" fill="#55657c">Результат: Elbrus, 5642, Russia</text>
+<g fill="none" stroke="#55657c" stroke-width="2.5" marker-end="url(#arrow)">
+<path d="M275 265 V299"/><path d="M485 350 H674"/>
+<path d="M820 385 V449"/><path d="M920 455 V391"/>
+<path d="M680 310 H585 V505 H491"/>
+</g>
+<text x="525" y="338" font-size="15">GET + country</text>
+<text x="597" y="430" font-size="16">JSON</text>
+<text x="48" y="620" font-size="16" fill="#55657c">Первая страница dynamic.html меняет DOM локально — без запроса к серверу.</text>
+</g></svg>

@@ -7,7 +7,7 @@
     Connection con = DriverManager.getConnection(
         "jdbc:postgresql://localhost:5432/mountain_trekking",
         "kirimusha",
-        System.getenv("DB_PASSWORD")
+        "Katalan11251442$"
     );
 
     PreparedStatement st = con.prepareStatement(

@@ -10,3 +10,4 @@ This course is designed to give you a comprehensive hands-on understanding of th
 - [Block 01 — PHP](Block_01/README.md)
 - [Block 02 — Java Servlets](Block_02/README.md)
 - [Block 03 — JSP and Groovlet, JSON responses](Block_03/README.md)
+- [Block 04 — Front-End and AJAX](Block_04/README.md)
