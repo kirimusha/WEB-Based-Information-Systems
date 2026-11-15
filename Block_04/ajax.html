@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск гор</title>
+    <script>
+      function search() {
+        var country = document.X.country.value;
+        var xmlhttpA = new XMLHttpRequest();
+        var url = "mountains.jsp?country=" + encodeURIComponent(country);
+        xmlhttpA.open("GET", url, true);
+        xmlhttpA.onreadystatechange = function() {
+          if (xmlhttpA.readyState == 4 && xmlhttpA.status == 200) { // readyState == 4 запрос завершён, ответ получен. status == 200 сервер ответил успешно.
+            var xlayer = document.getElementById("result");
+            xlayer.innerHTML = xmlhttpA.responseText;
+          }
+        };
+
+        xmlhttpA.send(null);
+      }
+    </script>
+</head>
+<body>
+    <h1>Поиск гор по стране</h1>
+
+    <form name="X">
+        Страна:
+        <input name="country" type="text" value="Russia"
+
+    </form>
+
+    <a href="javascript:search()">Найти горы</a>
+
+    <div id="result">
+        Тут результаты поиска
+    </div>
+</body>
+</html>
