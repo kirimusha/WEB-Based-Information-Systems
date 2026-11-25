@@ -1,18 +1,18 @@
 # Block 05 — Front-End Programming with React
 
-В этой работе я повторила функциональность Block 04 с использованием React: изменение описания по нажатию кнопки и поиск гор по стране без перезагрузки страницы.
+В пятом блоке я переделала две страницы из Block 04 на React. На первой по кнопке появляется описание походов, на второй можно найти горы по стране. Результат поиска появляется на той же странице.
 
-## Используемые технологии
+## Что использовала
 
 - React 18.2.0 и ReactDOM, подключённые через CDN.
 - JSX и Babel для выполнения примеров непосредственно в HTML.
 - `React.useState`, обработчики `onClick` и `onChange`.
 - Fetch API для получения JSON от JSP.
-- Готовый backend: JSP, Tomcat 10 и PostgreSQL.
+- JSP из предыдущего блока, Tomcat 10 и PostgreSQL.
 
 ## 1. Изменение описания — dynamic.html
 
-Компонент `App` хранит текст в состоянии `description`. При нажатии «Показать описание» вызывается `setDescription()`, после чего React обновляет отображение компонента. Прямое изменение `innerHTML` не используется.
+В компоненте `App` текст хранится в состоянии `description`. Кнопка «Показать описание» вызывает `setDescription()` и меняет текст. React сам обновляет абзац на странице.
 
 До нажатия:
 
@@ -24,7 +24,7 @@
 
 ## 2. Поиск гор — ajax.html
 
-Состояние `country` хранит страну, а `result` — текст результата. Обработчик `onChange` обновляет страну при вводе. По нажатию кнопки функция `search()` выполняет запрос:
+В `country` хранится введённая страна, в `result` — ответ сервера. При вводе текста `onChange` обновляет `country`. Кнопка «Найти горы» запускает `search()`:
 
 ```javascript
 fetch("mountains.jsp?country=" + encodeURIComponent(country))
@@ -32,7 +32,7 @@ fetch("mountains.jsp?country=" + encodeURIComponent(country))
     .then(data => setResult(JSON.stringify(data)));
 ```
 
-`response.json()` преобразует JSON-ответ в JavaScript-данные. `JSON.stringify()` преобразует их в строку для показа на странице. Обновление состояния вызывает обновление интерфейса без перезагрузки страницы.
+Сначала `response.json()` разбирает ответ сервера. Затем `JSON.stringify()` превращает данные в строку, а `setResult()` сохраняет её в состоянии. React показывает результат под кнопкой без перезагрузки страницы.
 
 До запроса:
 
@@ -55,9 +55,9 @@ fetch("mountains.jsp?country=" + encodeURIComponent(country))
   → React показывает результат на странице
 ```
 
-Backend `mountains.jsp` взят из предыдущего блока. Он ищет горы по подстроке страны без учёта регистра через `ILIKE` и возвращает JSON. Изменения в этой работе относятся к frontend. Пользовательская обработка ошибок запроса не добавлена.
+Для поиска я оставила `mountains.jsp` из предыдущего блока. Он обращается к PostgreSQL и возвращает JSON. Страна ищется по части названия без учёта регистра через `ILIKE`. Например, для `Russia` приходит Elbrus с высотой 5642. Если запрос завершится с ошибкой, отдельного сообщения на странице пока нет.
 
-## Структура проекта
+## Файлы
 
 ```text
 Block_05/
@@ -74,15 +74,19 @@ Block_05/
 
 ## Запуск
 
-1. Подготовить PostgreSQL с базой `mountain_trekking` из предыдущих блоков. Параметры подключения находятся в `mountains.jsp`.
+1. Запустить PostgreSQL с базой `mountain_trekking` из предыдущих блоков. При необходимости изменить параметры подключения в `mountains.jsp`.
 2. Скопировать содержимое `webapp` в `webapps/Block_05` установленного Tomcat.
 3. Запустить Tomcat и открыть:
    - `http://localhost:8080/Block_05/dynamic.html`
    - `http://localhost:8080/Block_05/ajax.html`
 4. На первой странице нажать «Показать описание», на второй — ввести страну и нажать «Найти горы».
 
-Для загрузки React и Babel с CDN нужен интернет. AJAX-страницу следует открывать через Tomcat. Архив `Block_05.zip` содержит только `dynamic.html` и `ajax.html`, без backend, драйвера и среды разработки.
+React и Babel загружаются с CDN, поэтому нужен интернет. Страницу поиска нужно открывать через Tomcat, чтобы она могла обратиться к JSP.
+
+В `Block_05.zip` для сдачи лежат два frontend-файла: `dynamic.html` и `ajax.html`. JSP и драйвер базы остались в рабочем проекте.
 
 ## Материалы курса
 
-Работа основана на темах React Basics, JSX and Babel, React Function State, React Events, React Forms и React Communication из [учебника курса](https://scerbakov.com:8443/wbtmaster/courses/is8_starte.htm). Используется React 18 с `ReactDOM.createRoot()` вместо старого `ReactDOM.render()` из части примеров.
+При написании кода я использовала разделы React Basics, JSX and Babel, React Function State, React Events, React Forms и React Communication из [учебника курса](https://scerbakov.com:8443/wbtmaster/courses/is8_starte.htm).
+
+В примерах встречается старый `ReactDOM.render()`. Здесь подключён React 18, поэтому для вывода компонента используется `ReactDOM.createRoot()`.
