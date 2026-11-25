@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Block 05 - React</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      function App() {
+          const [description, setDescription] = React.useState(
+              "Нажми кнопку, чтобы узнать о походах."
+          );
+
+          function showDescription() {
+              setDescription("Организуем походы на Эверест, Монблан и Эльбрус.");
+          }
+
+          return (
+              <div>
+                  <h1>Горные походы</h1>
+                  <p>{description}</p>
+                  <button onClick={showDescription}>
+                      Показать описание
+                  </button>
+              </div>
+          );
+      }
+
+      const root = ReactDOM.createRoot(
+        document.getElementById("app")
+      )
+
+      root.render(<App />)
+    </script>
+</body>
+</html>

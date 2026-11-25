@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Block 05 - React</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      function App() {
+          const [country, setCountry] = React.useState("Russia");
+          const [result, setResult] = React.useState(
+              "Здесь появятся результаты поиска."
+          );
+
+          function search() {
+              fetch("mountains.jsp?country=" + encodeURIComponent(country))
+                  .then(response => response.json())
+                  .then(data => setResult(JSON.stringify(data)));
+          }
+
+          return (
+              <div>
+                  <h1>Поиск гор по стране</h1>
+
+                  <label>
+                      Страна:{" "}
+                      <input
+                          value={country}
+                          onChange={event => setCountry(event.target.value)}
+                      />
+                  </label>
+
+                  <button onClick={search}>Найти горы</button>
+
+                  <p>{result}</p>
+              </div>
+          );
+      }
+
+      const root = ReactDOM.createRoot(
+        document.getElementById("app")
+      )
+
+      root.render(<App />)
+    </script>
+</body>
+</html>
